@@ -16,12 +16,16 @@ class NewHello extends Component {
 
 class Text extends Component {
   render () {
-    const textBool = this.props.boolean ? 'True' : 'False'
+    const textBool = this.props.isActivated ? 'True' : 'False'
+    const mappedNumbers = this.props.arrayOfNumbers.map(n => n * 2)
     return (
       <div>
         <p>{this.props.text}</p>
         <p>{this.props.number}</p>
         <p>{textBool}</p>
+        <p>{this.props.arrayOfNumbers.join(', ')}</p>
+        <p>{mappedNumbers.join(', ')}</p>
+        <p>{this.props.objectWithInfo.key2}</p>
       </div>
     )
   }
@@ -36,7 +40,13 @@ function App() {
         <ArrowHello title='ArrowHello component is working'/>
         <NewHello title='NewHello component is working too'/>
       </header>
-      <Text number={2} text='The new string' boolean={true} />
+      <Text 
+        arrayOfNumbers={[2, 3, 10]}
+        isActivated
+        objectWithInfo={{key: 'First Value', key2: 'Second Value'}}
+        number={2}
+        text='The new string'
+      />
       <a
         className="App-link"
         href="https://github.com/crispthoalex"
