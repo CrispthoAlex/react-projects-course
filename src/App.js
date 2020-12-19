@@ -14,6 +14,19 @@ class NewHello extends Component {
   }
 }
 
+class Text extends Component {
+  render () {
+    const textBool = this.props.boolean ? 'True' : 'False'
+    return (
+      <div>
+        <p>{this.props.text}</p>
+        <p>{this.props.number}</p>
+        <p>{textBool}</p>
+      </div>
+    )
+  }
+}
+
 function App() {
   return (
     <div className="App">
@@ -23,10 +36,7 @@ function App() {
         <ArrowHello title='ArrowHello component is working'/>
         <NewHello title='NewHello component is working too'/>
       </header>
-      <p>
-        Hi everyone<br></br>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
+      <Text number={2} text='The new string' boolean={true} />
       <a
         className="App-link"
         href="https://github.com/crispthoalex"
