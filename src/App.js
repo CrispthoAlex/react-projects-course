@@ -3,14 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function Hello (props) {
-  return <h2>{props.title}</h2>;
+  return <h2>{props.title}</h2> ;
 }
 const ArrowHello = (props) => <h3>{props.title}</h3>;
 
 // We will imports React and Component
 class NewHello extends Component {
   render () {
-    return <h4>{this.props.title}</h4> 
+    return <h4>{this.props.title}</h4> ;
   }
 }
 
@@ -38,14 +38,27 @@ class Text extends Component {
         <p>{objectWithInfo.key2}</p>
         {title}
       </div>
-    )
+    );
   }
+}
+class Title extends Component {
+  render () {
+    return (
+      <h1>{this.props.text}</h1>
+    );
+  }
+}
+Title.defaultProps = {
+  text: 'Test the Default props'
 }
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Title
+          text="It's not a Defualt text"
+        />
         <img src={logo} className="App-logo" alt="logo" />
         <Hello title='Hello component is working. As a function'/>
         <ArrowHello title='ArrowHello component is working. Using arrow function'/>
