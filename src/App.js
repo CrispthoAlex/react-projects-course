@@ -16,16 +16,27 @@ class NewHello extends Component {
 
 class Text extends Component {
   render () {
-    const textBool = this.props.isActivated ? 'True' : 'False'
-    const mappedNumbers = this.props.arrayOfNumbers.map(n => n * 2)
+    // Structuring the object to acces to all props. Simplefy the code
+    const {
+      arrayOfNumbers,
+      isActivated,
+      multiply,
+      number,
+      objectWithInfo,
+      text,
+      title
+    } = this.props
+    const textBool = isActivated ? 'True' : 'False'
+    const mappedNumbers = arrayOfNumbers.map(multiply)
     return (
       <div>
-        <p>{this.props.text}</p>
-        <p>{this.props.number}</p>
+        <p>{text}</p>
+        <p>{number}</p>
         <p>{textBool}</p>
-        <p>{this.props.arrayOfNumbers.join(', ')}</p>
+        <p>{arrayOfNumbers.join(', ')}</p>
         <p>{mappedNumbers.join(', ')}</p>
-        <p>{this.props.objectWithInfo.key2}</p>
+        <p>{objectWithInfo.key2}</p>
+        {title}
       </div>
     )
   }
@@ -36,16 +47,18 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Hello title='Hello component is working'/>
-        <ArrowHello title='ArrowHello component is working'/>
-        <NewHello title='NewHello component is working too'/>
+        <Hello title='Hello component is working. As a function'/>
+        <ArrowHello title='ArrowHello component is working. Using arrow function'/>
+        <NewHello title='NewHello component is working too. Using as class with extends'/>
       </header>
       <Text 
         arrayOfNumbers={[2, 3, 10]}
         isActivated
-        objectWithInfo={{key: 'First Value', key2: 'Second Value'}}
+        multiply={(number) => number * 3}
         number={2}
-        text='The new string'
+        objectWithInfo={{key: 'First Value', key2: 'Second Value'}}
+        text='The new string' 
+        title={<h1>Using props elements to build our site</h1>}
       />
       <a
         className="App-link"
