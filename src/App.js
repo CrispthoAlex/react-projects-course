@@ -55,9 +55,10 @@ Title.defaultProps = {
 class Count extends Component {
   // Init the state as a Field
   // state = { countState: 1 }
-  constructor () {
-    super()
-    this.state = { countstate: 0 }
+  constructor (props) {
+    super(props)
+    console.log(this.props.initialCounter) ;
+    this.state = { countstate: this.props.initialCounter }
     // Update state with setState()
     // This event is asynchronous
     setInterval(() => {
@@ -69,6 +70,8 @@ class Count extends Component {
     return <CountNumber cnumber={this.state.countstate} />
   }
 }
+Count.defaultProps = { initialCounter: 0 }
+
 // Identify state spread
 function CountNumber(props) {
   console.log('CountNumber render()') ;
@@ -96,7 +99,7 @@ function App() {
         text='The new string' 
         title={<h1>Using props elements to build our site</h1>}
       />
-      <Count />
+      <Count initialCounter={100} />
       <a
         className="App-link"
         href="https://github.com/crispthoalex"
