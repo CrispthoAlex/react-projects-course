@@ -57,17 +57,22 @@ class Count extends Component {
   // state = { countState: 1 }
   constructor () {
     super()
-    this.state = { countState: 0 }
+    this.state = { countstate: 0 }
     // Update state with setState()
     // This event is asynchronous
     setInterval(() => {
-      this.setState( { countState: this.state.countState + 1 } )
-    }, 1000);
+      this.setState( { countstate: this.state.countstate + 1 } )
+    }, 1000)
   }
-  
   render () {
-    return <span><b>Using state:</b> {this.state.countState}<br></br></span>
+    // return <span><b>Using state:</b> {this.state.countState}<br></br></span> ;
+    return <CountNumber cnumber={this.state.countstate} />
   }
+}
+// Identify state spread
+function CountNumber(props) {
+  console.log('CountNumber render()') ;
+  return <span>{ props.cnumber }<br></br></span> ;
 }
 
 function App() {
@@ -91,9 +96,7 @@ function App() {
         text='The new string' 
         title={<h1>Using props elements to build our site</h1>}
       />
-      <Count
-      
-      />
+      <Count />
       <a
         className="App-link"
         href="https://github.com/crispthoalex"
