@@ -51,6 +51,18 @@ class Title extends Component {
 Title.defaultProps = {
   text: 'Test the Default props'
 }
+// Applying state to content react
+class Count extends Component {
+  constructor () {
+    super () // Execute the constructor method
+    this.state = { countState: 1 }
+  }
+  render () {
+    // Will be removed because a constructor was used
+    // const countState = 0
+    return <span><b>Using state:</b> {this.state.countState}<br></br></span>
+  }
+}
 
 function App() {
   return (
@@ -72,6 +84,9 @@ function App() {
         objectWithInfo={{key: 'First Value', key2: 'Second Value'}}
         text='The new string' 
         title={<h1>Using props elements to build our site</h1>}
+      />
+      <Count
+      
       />
       <a
         className="App-link"
