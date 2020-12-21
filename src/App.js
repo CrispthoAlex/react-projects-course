@@ -53,13 +53,9 @@ Title.defaultProps = {
 }
 // Applying state to content react
 class Count extends Component {
-  constructor () {
-    super () // Execute the constructor method
-    this.state = { countState: 1 }
-  }
+  // Init the state as a Field
+  state = { countState: 1 }
   render () {
-    // Will be removed because a constructor was used
-    // const countState = 0
     return <span><b>Using state:</b> {this.state.countState}<br></br></span>
   }
 }
