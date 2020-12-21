@@ -54,7 +54,17 @@ Title.defaultProps = {
 // Applying state to content react
 class Count extends Component {
   // Init the state as a Field
-  state = { countState: 1 }
+  // state = { countState: 1 }
+  constructor () {
+    super()
+    this.state = { countState: 0 }
+    // Update state with setState()
+    // This event is asynchronous
+    setInterval(() => {
+      this.setState( { countState: this.state.countState + 1 } )
+    }, 1000);
+  }
+  
   render () {
     return <span><b>Using state:</b> {this.state.countState}<br></br></span>
   }
