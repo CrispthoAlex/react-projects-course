@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ConditionalSection from './sections/conditional'
 
 function Hello (props) {
   return <h2>{props.title}</h2> ;
@@ -90,6 +91,7 @@ function App() {
         <ArrowHello title='ArrowHello component is working. Using arrow function'/>
         <NewHello title='NewHello component is working too. Using as class with extends'/>
       </header>
+      <ConditionalSection />
       <Text 
         arrayOfNumbers={[2, 3, 10]}
         isActivated
