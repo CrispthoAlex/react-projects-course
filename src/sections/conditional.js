@@ -7,13 +7,23 @@ function ComponentB(props) {
     return <p>ComponentB</p>;
 }
 
+function useConditionalRendering (showCompA) {
+    if (showCompA) {
+        return <ComponentA />
+    }
+    return <ComponentB />
+}
+
 export default class ConditionalSection extends Component {
+    constructor() {
+        super()
+        this.state = { showCompA: true } ;
+    }
     render () {
         return (
             <div>
                 <h4>Conditional Rendering</h4>
-                <ComponentA />
-                <ComponentB />
+                {useConditionalRendering(this.state.showCompA)}
             </div>
         )
     }
